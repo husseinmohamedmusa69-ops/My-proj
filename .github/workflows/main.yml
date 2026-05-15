@@ -2,7 +2,7 @@
 name: Build Android APK
 on:
   push:
-    branches: [ "رئيسي" ] # تم ضبطه على اسم فرعك الحالي (رئيسي)
+    branches: [ "رئيسي" ]
 
 jobs:
   build:
@@ -24,10 +24,8 @@ jobs:
           cordova create my-app com.example.myapp MyApp
           cd my-app
           cordova platform add android
-          # نسخ ملفات موقعك إلى مجلد الـ www الخاص بكوردوفا
           rm -rf www/*
           cp -r ../* www/ || true
-          # بناء ملف الـ APK
           cordova build android --debug
 
       - name: Upload APK
